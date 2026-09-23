@@ -7,9 +7,9 @@ export default function Footer() {
   const now = useClock();
 
   return (
-    <footer className="h-(--footer-height) border-t pt-5 flex flex-col justify-between">
-      <div className="grid md:grid-cols-3 grid-cols-2">
-        <div className="uppercase flex flex-col">
+    <footer className="flex h-(--footer-height) flex-col justify-between border-t pt-5">
+      <div className="grid grid-cols-2 md:grid-cols-3">
+        <div className="flex flex-col uppercase">
           <a className="h-(--footer-link-height) w-fit">
             <small>linkedin</small>
           </a>
@@ -23,13 +23,13 @@ export default function Footer() {
             <small>e-mail</small>
           </a>
         </div>
-        <div className="col-span-1 md:col-span-2 flex flex-col md:grid md:grid-cols-2">
-          <p className="flex uppercase h-(--footer-link-height)">
+        <div className="col-span-1 flex flex-col md:col-span-2 md:grid md:grid-cols-2">
+          <p className="flex h-(--footer-link-height) uppercase">
             <small>
               {t.footer["footer-location"]}:{t.footer["footer-location-spot"]}
             </small>
           </p>
-          <p className="flex min-md:justify-end uppercase h-(--footer-link-height)">
+          <p className="flex h-(--footer-link-height) uppercase min-md:justify-end">
             <small>
               {t.footer["footer-local-time"]}:
               <time dateTime={now?.toISOString()}>

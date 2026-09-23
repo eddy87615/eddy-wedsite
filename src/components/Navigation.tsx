@@ -33,9 +33,9 @@ export default function Navigation() {
       initial={{ y: "-100%" }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className="uppercase fixed z-50 top-0 left-0 p-(--universal-padding) w-full max-md:h-0 max-md:p-0"
+      className="fixed top-0 left-0 z-50 w-full p-(--universal-padding) uppercase max-md:h-0 max-md:p-0"
     >
-      <div className="md:flex hidden justify-between items-center">
+      <div className="hidden items-center justify-between md:flex">
         <Link href={`/${lang}`} aria-label={t.navigation["logo-alt"]}>
           <Image
             src="/EC-logo.svg"
@@ -57,11 +57,11 @@ export default function Navigation() {
           ))}
         </div>
       </div>
-      <div className="md:hidden fixed z-50 top-0 left-0 w-full p-5 flex justify-between">
+      <div className="fixed top-0 left-0 z-50 flex w-full justify-between p-5 md:hidden">
         <Link
           href={`/${lang}`}
           aria-label={t.navigation["logo-alt"]}
-          className="md:hidden block"
+          className="block md:hidden"
         >
           <Image
             src="/EC-logo.svg"
@@ -75,10 +75,10 @@ export default function Navigation() {
           aria-label={
             isOpen ? t.navigation["close-menu"] : t.navigation["open-menu"]
           }
-          className="md:hidden flex flex-col justify-center items-end gap-2 w-10 h-10"
+          className="flex h-10 w-10 flex-col items-end justify-center gap-2 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="block w-full h-px bg-eddy-black"></span>
+          <span className="block h-px w-full bg-eddy-black"></span>
           <span
             className={`block h-px bg-eddy-black transition-[width] duration-500 ${isOpen ? "w-1/2" : "w-full"}`}
           ></span>
@@ -88,7 +88,7 @@ export default function Navigation() {
         </button>
         <div
           inert={!isOpen}
-          className={`md:hidden flex flex-col justify-start p-5 pt-30 w-full z-[-1] h-screen absolute top-0 left-0 bg-eddy-bg transition-all duration-500 ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+          className={`absolute top-0 left-0 z-[-1] flex h-screen w-full flex-col justify-start bg-eddy-bg p-5 pt-30 transition-all duration-500 md:hidden ${isOpen ? "visible opacity-100" : "invisible opacity-0"}`}
         >
           {navigationLinks.map((link, index) => (
             <motion.div
