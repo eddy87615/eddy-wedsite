@@ -11,9 +11,9 @@ export default function HomeHero() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 1 }}
       className="flex flex-col"
     >
       <h1 className="home-title w-full">

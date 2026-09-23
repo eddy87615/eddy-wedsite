@@ -19,7 +19,7 @@ export default function Footer() {
   const now = useClock();
 
   return (
-    <footer className="flex h-(--footer-height) flex-col justify-between border-t pt-5">
+    <footer className="flex h-(--footer-height) flex-col justify-between border-t bg-eddy-bg pt-5">
       <div className="grid grid-cols-[1fr_1.5fr] md:grid-cols-3">
         <div className="flex flex-col uppercase">
           {footerLinks.map((link, key) => (
