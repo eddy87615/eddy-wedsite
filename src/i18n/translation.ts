@@ -1,14 +1,12 @@
 export const translations = {
   en: {
     home: {
-      "home-title01": "Hi!",
-      "home-title02": "I'm Eddy Chen.",
+      "home-title": "Hi!\nI'm Eddy Chen.",
       "home-title03": "I'm a frontend engineer.",
     },
     navigation: {
       "logo-alt": "EC logo",
       "about-me": "About me",
-      experience: "Experiences",
       "post-and-projects": "Posts & Projects",
       "open-menu": "Open menu",
       "close-menu": "Close menu",
@@ -25,14 +23,12 @@ export const translations = {
   },
   zh: {
     home: {
-      "home-title01": "嗨！",
-      "home-title02": "我是陳品叡",
+      "home-title": "嗨！\n我是陳品叡",
       "home-title03": "我是前端工程師",
     },
     navigation: {
       "logo-alt": "EC logo",
       "about-me": "關於我",
-      experience: "經歷",
       "post-and-projects": "文章和專案",
       "open-menu": "打開選單",
       "close-menu": "關閉選單",
@@ -49,14 +45,12 @@ export const translations = {
   },
   jp: {
     home: {
-      "home-title01": "初めまして！",
-      "home-title02": "私は陳品叡です",
-      "home-title03": "私はフロントエンドエンジニアです",
+      "home-title": "チェンピンルイ",
+      "home-title03": "フロントエンドエンジニア",
     },
     navigation: {
       "logo-alt": "EC logo",
       "about-me": "私について",
-      experience: "経歴",
       "post-and-projects": "文章とプロジェクト",
       "open-menu": "メニューを開く",
       "close-menu": "メニューを閉じる",

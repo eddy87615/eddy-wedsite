@@ -19,7 +19,7 @@ type NavLink = {
 
 const navigationLinks: NavLink[] = [
   { href: "about-me", labelKey: "about-me" },
-  { href: "post-and-projects", labelKey: "post-and-projects" },
+  { href: "posts-and-projects", labelKey: "post-and-projects" },
 ];
 
 export default function Navigation() {
@@ -33,42 +33,44 @@ export default function Navigation() {
       initial={{ y: "-100%" }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 z-50 w-full p-(--universal-padding) uppercase max-md:h-0 max-md:p-0"
+      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between p-4 uppercase sm:p-(--universal-padding)"
     >
-      <div className="hidden items-center justify-between md:flex">
-        <Link href={`/${lang}`} aria-label={t.navigation["logo-alt"]}>
-          <Image
-            src="/EC-logo.svg"
-            alt={t.navigation["logo-alt"]}
-            height={40}
-            width={94}
-            className="h-10 w-auto"
-          />
-        </Link>
-        <div className="flex gap-8 sm:gap-12">
-          {navigationLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={`/${lang}/${link.href}`}
-              aria-label={t.navigation[link.labelKey]}
-            >
-              {t.navigation[link.labelKey]}
-            </Link>
-          ))}
-        </div>
+      <Link
+        href={`/${lang}`}
+        aria-label={t.navigation["logo-alt"]}
+        className="hidden xs:block"
+      >
+        <Image
+          src="/EC-logo.svg"
+          alt={t.navigation["logo-alt"]}
+          height={40}
+          width={94}
+          className="h-8 w-auto"
+        />
+      </Link>
+      <div className="hidden gap-4 xs:flex sm:gap-12">
+        {navigationLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={`/${lang}/${link.href}`}
+            aria-label={t.navigation[link.labelKey]}
+          >
+            {t.navigation[link.labelKey]}
+          </Link>
+        ))}
       </div>
-      <div className="fixed top-0 left-0 z-50 flex w-full justify-between p-5 md:hidden">
+      <div className="fixed top-0 left-0 z-50 flex w-full justify-between p-4 xs:hidden">
         <Link
           href={`/${lang}`}
           aria-label={t.navigation["logo-alt"]}
-          className="block md:hidden"
+          className="block"
         >
           <Image
             src="/EC-logo.svg"
             alt={t.navigation["logo-alt"]}
             height={60}
             width={94}
-            className="h-10 w-auto md:h-15"
+            className="h-8 w-auto"
           />
         </Link>
         <button

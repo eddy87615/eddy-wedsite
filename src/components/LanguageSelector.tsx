@@ -19,7 +19,7 @@ const languages = [
     flag: "/Japanese.svg",
     toggle: "日本語に切り替え",
   },
-  { code: "zh", label: "中文", flag: "/Chinese.svg", toggle: "切换到中文" },
+  { code: "zh", label: "中文", flag: "/Chinese.svg", toggle: "切換到中文" },
 ] as const;
 
 // 把目前網址的語言段換成另一個語言,其餘路徑(例如 /en/about-me)保留不變
@@ -66,7 +66,7 @@ export default function LanguageSelector() {
               <li key={lang.code}>
                 <Link
                   href={replaceLocale(pathname, lang.code)}
-                  className={`flex min-h-6 min-w-6 justify-between gap-4 p-3 ${language === lang.code ? "active" : ""}`}
+                  className={`flex min-h-6 min-w-6 justify-between gap-4 p-2 sm:p-3 ${language === lang.code ? "active" : ""}`}
                   onClick={() => setIsOpen(false)}
                   aria-label={lang.toggle}
                 >
@@ -84,7 +84,7 @@ export default function LanguageSelector() {
         </div>
       </div>
       <button
-        className="flex min-h-6 min-w-6 items-center justify-between gap-1 border border-solid border-eddy-black p-3"
+        className="flex items-center justify-between gap-1 border border-solid border-eddy-black p-2 sm:min-h-6 sm:min-w-6 sm:p-3"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label={currentLang?.toggle}

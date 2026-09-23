@@ -25,10 +25,10 @@ export default function UpdateCard({
       className="group flex flex-col gap-2 bg-eddy-gray p-4 transition-colors duration-200 hover:bg-eddy-gray-hover focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-eddy-black sm:p-5"
     >
       <p className="font-semibold uppercase">{label}</p>
-      <p className="text-lg underline-offset-4 group-hover:underline">
-        {title}
+      <p className="underline-offset-4">{title}</p>
+      <p className="line-clamp-2 hidden text-eddy-text/30 lg:block">
+        {description}
       </p>
-      <p className="line-clamp-2 text-eddy-text/70">{description}</p>
     </motion.a>
   );
 }

@@ -43,6 +43,10 @@ html[lang^="jp"] {
   --color-eddy-hr: var(--eddy-hr);
 }
 
+@theme {
+  --breakpoint-xs: 350px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --eddy-bg: #111111;

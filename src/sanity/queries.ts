@@ -69,7 +69,7 @@ export function getLatestUpdate(lang: Locale) {
   return getLatestByLanguage(lang);
 }
 
-export function truncate(text: string, maxLength = 140) {
+export function truncate(text: string, maxLength = 50) {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength).trimEnd()}……`;
 }

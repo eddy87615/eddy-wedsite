@@ -18,7 +18,7 @@ export default async function Home({ lang }: { lang: Locale }) {
         <div className="absolute right-0 bottom-5 flex w-full flex-col gap-4 sm:max-w-100">
           {latestPost && (
             <UpdateCard
-              href={`/${lang}/post-and-projects/${latestPost.slug}`}
+              href={`/${lang}/posts-and-projects/${latestPost.slug}`}
               label={t.updates["new-post"]}
               title={latestPost.title}
               description={truncate(latestPost.excerpt)}
@@ -26,7 +26,7 @@ export default async function Home({ lang }: { lang: Locale }) {
           )}
           {/* {latestProject && (
             <UpdateCard
-              href={`/${lang}/post-and-projects/${latestProject.slug}`}
+              href={`/${lang}/posts-and-projects/${latestProject.slug}`}
               label={t.updates["new-project"]}
               title={latestProject.title}
               description={truncate(latestProject.excerpt)}

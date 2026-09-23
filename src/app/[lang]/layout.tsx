@@ -70,7 +70,7 @@ export default async function LangLayout({
     >
       <body
         suppressHydrationWarning
-        className="min-h-full min-w-full p-(--universal-padding) text-eddy-text"
+        className="min-h-full min-w-full p-4 text-eddy-text sm:p-(--universal-padding)"
       >
         <Navigation />
         <LanguageSelector />
