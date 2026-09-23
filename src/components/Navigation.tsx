@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { useParams } from "next/navigation";
@@ -11,6 +10,7 @@ import {
   type Locale,
   type Translations,
 } from "@/i18n/translation";
+import Logo from "@/components/Logo";
 
 type NavLink = {
   href: string;
@@ -40,15 +40,9 @@ export default function Navigation() {
         aria-label={t.navigation["logo-alt"]}
         className="hidden xs:block"
       >
-        <Image
-          src="/EC-logo.svg"
-          alt={t.navigation["logo-alt"]}
-          height={40}
-          width={94}
-          className="h-8 w-auto"
-        />
+        <Logo className="h-8 w-auto text-eddy-text mix-blend-difference" />
       </Link>
-      <div className="hidden gap-4 xs:flex sm:gap-12">
+      <div className="hidden gap-4 text-eddy-text mix-blend-difference xs:flex sm:gap-12">
         {navigationLinks.map((link) => (
           <Link
             key={link.href}
@@ -65,13 +59,7 @@ export default function Navigation() {
           aria-label={t.navigation["logo-alt"]}
           className="block"
         >
-          <Image
-            src="/EC-logo.svg"
-            alt={t.navigation["logo-alt"]}
-            height={60}
-            width={94}
-            className="h-8 w-auto"
-          />
+          <Logo className="h-8 w-auto text-eddy-text mix-blend-difference" />
         </Link>
         <button
           aria-label={
@@ -80,12 +68,12 @@ export default function Navigation() {
           className="flex h-10 w-10 flex-col items-end justify-center gap-2 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="block h-px w-full bg-eddy-black"></span>
+          <span className="block h-px w-full bg-white mix-blend-difference"></span>
           <span
-            className={`block h-px bg-eddy-black transition-[width] duration-500 ${isOpen ? "w-1/2" : "w-full"}`}
+            className={`block h-px bg-white mix-blend-difference transition-[width] duration-500 ${isOpen ? "w-1/2" : "w-full"}`}
           ></span>
           <span
-            className={`block h-px bg-eddy-black transition-[width] duration-500 ${isOpen ? "w-full" : "w-1/2"}`}
+            className={`block h-px bg-white mix-blend-difference transition-[width] duration-500 ${isOpen ? "w-full" : "w-1/2"}`}
           ></span>
         </button>
         <div

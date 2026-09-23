@@ -1,25 +1,29 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useParams } from "next/navigation";
 import { defaultLocale, type Locale } from "@/i18n/translation";
+import {
+  EnglishIcon,
+  JapaneseIcon,
+  ChineseIcon,
+} from "@/components/LanguageIcon";
 
 const languages = [
   {
     code: "en",
     label: "English",
-    flag: "/English.svg",
+    Icon: EnglishIcon,
     toggle: "Switch to English",
   },
   {
     code: "jp",
     label: "日本語",
-    flag: "/Japanese.svg",
+    Icon: JapaneseIcon,
     toggle: "日本語に切り替え",
   },
-  { code: "zh", label: "中文", flag: "/Chinese.svg", toggle: "切換到中文" },
+  { code: "zh", label: "中文", Icon: ChineseIcon, toggle: "切換到中文" },
 ] as const;
 
 // 把目前網址的語言段換成另一個語言,其餘路徑(例如 /en/about-me)保留不變
@@ -56,7 +60,7 @@ export default function LanguageSelector() {
     <div className="fixed right-5 bottom-5 z-5" ref={dropdownRef}>
       <div
         inert={!isOpen}
-        className={`absolute right-0 bottom-full mb-2 grid w-full min-w-6 border border-solid border-eddy-black bg-eddy-bg transition-[grid-template-rows,visibility] duration-300 motion-reduce:transition-none ${
+        className={`absolute right-0 bottom-full mb-2 grid w-full min-w-6 border border-solid border-eddy-border bg-eddy-bg transition-[grid-template-rows,visibility] duration-300 motion-reduce:transition-none ${
           isOpen ? "visible grid-rows-[1fr]" : "invisible grid-rows-[0fr]"
         }`}
       >
@@ -70,12 +74,7 @@ export default function LanguageSelector() {
                   onClick={() => setIsOpen(false)}
                   aria-label={lang.toggle}
                 >
-                  <Image
-                    src={lang.flag}
-                    width={20}
-                    height={20}
-                    alt={`${lang.label} flag`}
-                  />
+                  <lang.Icon className="h-5 w-5 text-eddy-text" />
                   {/* <span>{lang.label}</span> */}
                 </Link>
               </li>
@@ -84,17 +83,15 @@ export default function LanguageSelector() {
         </div>
       </div>
       <button
-        className="flex items-center justify-between gap-1 border border-solid border-eddy-black p-2 sm:min-h-6 sm:min-w-6 sm:p-3"
+        className="flex items-center justify-between gap-1 border border-solid border-eddy-border bg-eddy-bg p-2 sm:min-h-6 sm:min-w-6 sm:p-3"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label={currentLang?.toggle}
       >
-        <Image
-          src={currentLang?.flag || "/images/taiwan.png"}
-          width={20}
-          height={20}
-          alt={`${currentLang?.label} flag`}
-        />
+        {(() => {
+          const CurrentIcon = currentLang?.Icon ?? EnglishIcon;
+          return <CurrentIcon className="h-5 w-5 text-eddy-text" />;
+        })()}
         {/* <span className="ml-auto">{currentLang?.label}</span> */}
         {/* <svg
           className={`duration-200 ${isOpen ? "rotate-180" : ""}`}

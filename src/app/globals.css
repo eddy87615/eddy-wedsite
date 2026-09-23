@@ -7,8 +7,9 @@
   --eddy-gray-hover: #e0e0e0;
   --eddy-bg: #fbfbfb;
   --eddy-text: #111111;
-  --font-dynamic: var(--font-pp-mori), var(--font-en), sans-serif;
+  --eddy-border: #111111;
   --eddy-hr: #111111;
+  --font-dynamic: var(--font-pp-mori), var(--font-en), sans-serif;
 
   --header-height: 60px;
   --universal-padding: 20px;
@@ -36,6 +37,7 @@ html[lang^="jp"] {
   --color-eddy-bg: var(--eddy-bg);
   --color-eddy-text: var(--eddy-text);
   --color-eddy-hr: var(--eddy-hr);
+  --color-eddy-border: var(--eddy-border);
 }
 
 @theme {
@@ -48,6 +50,7 @@ html[lang^="jp"] {
     --eddy-text: #fbfbfb;
     --eddy-gray: #1c1c1c;
     --eddy-gray-hover: #242424;
+    --eddy-border: #fbfbfb;
   }
 }
 
