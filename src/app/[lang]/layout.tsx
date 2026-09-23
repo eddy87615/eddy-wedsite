@@ -6,7 +6,46 @@ import {
   Noto_Sans_TC,
   Geist_Mono,
 } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
+
+// 英文一律用 PP Mori,不管切到哪個語言都排在字型堆疊最前面(見 globals.css 的 --font-dynamic)
+const ppMori = localFont({
+  src: [
+    {
+      path: "../../../public/font/PPMori-Extralight.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../../../public/font/PPMori-ExtralightItalic.otf",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../../../public/font/PPMori-Regular.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../../public/font/PPMori-RegularItalic.otf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../../public/font/PPMori-SemiBold.otf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../../public/font/PPMori-SemiBoldItalic.otf",
+      weight: "600",
+      style: "italic",
+    },
+  ],
+  variable: "--font-pp-mori",
+  display: "swap",
+});
 import Navigation from "@/components/Navigation";
 import LanguageSelector from "@/components/LanguageSelector";
 import { locales, type Locale } from "@/i18n/translation";
@@ -66,7 +105,7 @@ export default async function LangLayout({
     <html
       lang={lang}
       suppressHydrationWarning
-      className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansTC.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${ppMori.variable} ${notoSans.variable} ${notoSansJP.variable} ${notoSansTC.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body
         suppressHydrationWarning

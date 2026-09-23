@@ -3,9 +3,5 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="mt-20 min-h-screen md:mt-[calc(var(--header-height)+var(--universal-padding))]">
-      {children}
-    </section>
-  );
+  return <main className="pt-20 pb-4 sm:pb-5">{children}</main>;
 }

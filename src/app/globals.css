@@ -1,11 +1,4 @@
 @import "tailwindcss";
-@font-face {
-  font-family: PP Mori;
-  src:
-    url(/_next/static/media/PPMori-Light.0f42b11c.woff2) format("woff2"),
-    url(/_next/static/media/PPMori-Light.093f1007.woff) format("woff");
-  font-weight: 200;
-}
 
 :root {
   --eddy-white: #ffffff;
@@ -14,7 +7,7 @@
   --eddy-gray-hover: #e0e0e0;
   --eddy-bg: #fbfbfb;
   --eddy-text: #111111;
-  --font-dynamic: PP Mori, var(--font-en), sans-serif;
+  --font-dynamic: var(--font-pp-mori), var(--font-en), sans-serif;
   --eddy-hr: #111111;
 
   --header-height: 60px;
@@ -27,10 +20,12 @@
 }
 
 html[lang^="zh"] {
-  --font-dynamic: var(--font-zh), var(--font-en), sans-serif;
+  --font-dynamic:
+    var(--font-pp-mori), var(--font-zh), var(--font-en), sans-serif;
 }
 html[lang^="jp"] {
-  --font-dynamic: var(--font-jp), var(--font-en), sans-serif;
+  --font-dynamic:
+    var(--font-pp-mori), var(--font-jp), var(--font-en), sans-serif;
 }
 
 @theme inline {
