@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@font-face {
+  font-family: PP Mori;
+  src:
+    url(/_next/static/media/PPMori-Light.0f42b11c.woff2) format("woff2"),
+    url(/_next/static/media/PPMori-Light.093f1007.woff) format("woff");
+  font-weight: 200;
+}
+
+:root {
+  --eddy-white: #ffffff;
+  --eddy-black: #111111;
+  --eddy-gray: #ebebeb;
+  --eddy-gray-hover: #e0e0e0;
+  --eddy-bg: #fbfbfb;
+  --eddy-text: #111111;
+  --font-dynamic: PP Mori, var(--font-en), sans-serif;
+  --eddy-hr: #111111;
+
+  --header-height: 60px;
+  --universal-padding: 20px;
+  --max-section-width: 1320px;
+  --footer-link-height: 24px;
+  --footer-height: calc(
+    var(--footer-link-height) * 5 + var(--universal-padding)
+  );
+}
+
+html[lang^="zh"] {
+  --font-dynamic: var(--font-zh), var(--font-en), sans-serif;
+}
+html[lang^="jp"] {
+  --font-dynamic: var(--font-jp), var(--font-en), sans-serif;
+}
+
+@theme inline {
+  --color-eddy-white: var(--eddy-white);
+  --color-eddy-black: var(--eddy-black);
+  --color-eddy-gray: var(--eddy-gray);
+  --color-eddy-gray-hover: var(--eddy-gray-hover);
+  --color-eddy-bg: var(--eddy-bg);
+  --color-eddy-text: var(--eddy-text);
+  --color-eddy-hr: var(--eddy-hr);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --eddy-bg: #111111;
+    --eddy-text: #fbfbfb;
+    --eddy-gray: #1c1c1c;
+    --eddy-gray-hover: #242424;
+  }
+}
+
+@layer base {
+  body {
+    background: var(--eddy-bg);
+    color: var(--eddy-text);
+    font-family: var(--font-dynamic);
+    box-sizing: border-box;
+  }
+
+  & > * {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 1.75rem + 3.125vw, 3.75rem);
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: clamp(2.25rem, 1rem + 3.125vw, 3rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.75rem, 0.917rem + 2.083vw, 2.25rem);
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: clamp(1.5rem, 1.083rem + 1.042vw, 1.75rem);
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: clamp(1.125rem, 0.917rem + 0.521vw, 1.25rem);
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  p,
+  button,
+  a,
+  ul,
+  li,
+  input,
+  textarea,
+  table,
+  th,
+  td,
+  span {
+    font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
+    line-height: 1.5;
+  }
+
+  small {
+    font-size: clamp(0.75rem, 0.542rem + 0.521vw, 0.875rem);
+    line-height: 1.5;
+  }
+
+  strong {
+    font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
+    font-weight: 600;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+}
+
+.home-title {
+  font-size: clamp(2rem, -5.083rem + 17.708vw, 6.25rem);
+  font-weight: 100;
+}
+
+.clock-colon {
+  animation: clock-blink 1s infinite;
+}
+
+@keyframes clock-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clock-colon {
+    animation: none;
+  }
+}
