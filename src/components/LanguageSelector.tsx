@@ -57,7 +57,10 @@ export default function LanguageSelector() {
   }, []);
 
   return (
-    <div className="fixed right-5 bottom-5 z-5" ref={dropdownRef}>
+    <div
+      className="fixed right-4 bottom-4 z-5 sm:right-5 sm:bottom-5"
+      ref={dropdownRef}
+    >
       <div
         inert={!isOpen}
         className={`absolute right-0 bottom-full mb-2 grid w-full min-w-6 border border-solid border-eddy-border bg-eddy-bg transition-[grid-template-rows,visibility] duration-300 motion-reduce:transition-none ${

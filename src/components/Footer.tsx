@@ -14,7 +14,7 @@ const footerLinks: FooterLink[] = [
   { href: "mailto:eddychen615@gmail.com", key: "email" },
 ];
 
-export default function Footer() {
+export default function Footer({ timezone }: { timezone?: string | null }) {
   const t = useTranslation();
   const now = useClock();
 
@@ -44,7 +44,7 @@ export default function Footer() {
               {t.footer["footer-local-time"]}:
               <time dateTime={now?.toISOString()}>
                 {now
-                  ? getTimeParts(now).map((part, i) =>
+                  ? getTimeParts(now, timezone ?? undefined).map((part, i) =>
                       part.type === "literal" ? (
                         <span key={i} className="clock-colon">
                           {part.value}

@@ -13,7 +13,7 @@
 
   --header-height: 60px;
   --universal-padding: 20px;
-  --max-section-width: 1320px;
+  --max-section-width: 1200px;
   --footer-link-height: 24px;
   --footer-height: calc(
     var(--footer-link-height) * 5 + var(--universal-padding)
@@ -68,12 +68,12 @@ html[lang^="jp"] {
 
   h1 {
     font-size: clamp(3rem, 1.75rem + 3.125vw, 3.75rem);
-    font-weight: 500;
+    font-weight: 100;
   }
 
   h2 {
     font-size: clamp(2.25rem, 1rem + 3.125vw, 3rem);
-    font-weight: 600;
+    font-weight: 100;
   }
 
   h3 {
@@ -105,13 +105,13 @@ html[lang^="jp"] {
   textarea,
   table,
   th,
-  td,
-  span {
+  td {
     font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
     line-height: 1.5;
   }
 
-  small {
+  small,
+  time {
     font-size: clamp(0.75rem, 0.542rem + 0.521vw, 0.875rem);
     line-height: 1.5;
   }
@@ -127,9 +127,29 @@ html[lang^="jp"] {
   }
 }
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 .home-title {
   font-size: clamp(2rem, -5.083rem + 17.708vw, 6.25rem);
-  font-weight: 100;
 }
 
 .clock-colon {
@@ -150,5 +170,19 @@ html[lang^="jp"] {
 @media (prefers-reduced-motion: reduce) {
   .clock-colon {
     animation: none;
+  }
+}
+
+.scroll-down {
+  animation: scrollDown infinite;
+  animation-duration: 3s;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
   }
 }

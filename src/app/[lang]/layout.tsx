@@ -7,7 +7,9 @@ import {
   Geist_Mono,
 } from "next/font/google";
 import localFont from "next/font/local";
+import SmoothScroll from "@/components/SmoothScroll";
 import "../globals.css";
+import "lenis/dist/lenis.css";
 
 // 英文一律用 PP Mori,不管切到哪個語言都排在字型堆疊最前面(見 globals.css 的 --font-dynamic)
 const ppMori = localFont({
@@ -49,6 +51,7 @@ const ppMori = localFont({
 import Navigation from "@/components/Navigation";
 import LanguageSelector from "@/components/LanguageSelector";
 import { locales, type Locale } from "@/i18n/translation";
+import { getTimezone } from "@/sanity/queries";
 import Footer from "@/components/Footer";
 
 const notoSans = Noto_Sans({
@@ -101,6 +104,8 @@ export default async function LangLayout({
     notFound();
   }
 
+  const timezone = await getTimezone();
+
   return (
     <html
       lang={lang}
@@ -111,10 +116,12 @@ export default async function LangLayout({
         suppressHydrationWarning
         className="min-h-full min-w-full p-4 text-eddy-text sm:p-(--universal-padding)"
       >
-        <Navigation />
-        <LanguageSelector />
-        {children}
-        <Footer />
+        <SmoothScroll>
+          <Navigation />
+          <LanguageSelector />
+          {children}
+          <Footer timezone={timezone} />
+        </SmoothScroll>
       </body>
     </html>
   );

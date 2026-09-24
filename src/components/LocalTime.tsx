@@ -30,15 +30,20 @@ export function useClock() {
   return timestamp === 0 ? null : new Date(timestamp);
 }
 
-const timeFormatter = new Intl.DateTimeFormat("en-GB", {
-  hour: "2-digit",
-  minute: "2-digit",
-  second: "2-digit",
-  hour12: false,
-});
+// 沒指定 timeZone 時,Intl 會自己 fallback 成訪客瀏覽器所在的時區,
+// 所以 aboutMe 裡的 timezone 欄位還沒填之前,行為跟原本一樣不會壞掉。
+function getTimeFormatter(timeZone?: string) {
+  return new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+    timeZone,
+  });
+}
 
 // 把時間拆成一段一段(時、:、分、:、秒),
 // 這樣冒號才能單獨挑出來套動畫,而不是整串黏在一起的文字。
-export function getTimeParts(date: Date) {
-  return timeFormatter.formatToParts(date);
+export function getTimeParts(date: Date, timeZone?: string) {
+  return getTimeFormatter(timeZone).formatToParts(date);
 }
