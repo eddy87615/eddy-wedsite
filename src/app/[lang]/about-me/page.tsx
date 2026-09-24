@@ -18,7 +18,7 @@ export default async function AboutMe({
 
   return (
     <MainLayout>
-      <header className="relative min-h-[calc(100dvh-200px)]">
+      <header className="relative min-h-[calc(100svh-200px)]">
         <ScrollDown />
         <div className="mb-20 flex min-h-[15vh] justify-between">
           <p className="text-sm uppercase">about me</p>

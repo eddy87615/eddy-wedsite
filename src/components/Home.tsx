@@ -12,7 +12,7 @@ export default async function Home({ lang }: { lang: Locale }) {
   ]);
 
   return (
-    <section className="relative flex h-[calc(100dvh-var(--universal-padding)*2-var(--footer-height))] flex-col justify-center gap-8">
+    <section className="relative flex h-[calc(100svh-var(--universal-padding)*2-var(--footer-height))] flex-col justify-center gap-8">
       <HomeHero />
       {(latestPost || latestProject) && (
         <div className="absolute right-0 bottom-5 flex w-full flex-col gap-4 sm:max-w-100">
