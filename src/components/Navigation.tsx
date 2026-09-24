@@ -95,6 +95,7 @@ export default function Navigation() {
               href={`/${lang}/${link.href}`}
               aria-label={t.navigation[link.labelKey]}
               className="block py-4"
+              onClick={() => setIsOpen(false)}
             >
               {t.navigation[link.labelKey]}
             </Link>
