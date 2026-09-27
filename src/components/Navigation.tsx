@@ -33,16 +33,16 @@ export default function Navigation() {
       initial={{ y: "-100%", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between p-4 uppercase sm:p-(--universal-padding)"
+      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between bg-eddy-nav-bg p-4 uppercase sm:p-(--universal-padding)"
     >
       <Link
         href={`/${lang}`}
         aria-label={t.navigation["logo-alt"]}
         className="hidden xs:block"
       >
-        <Logo className="h-8 w-auto text-eddy-text mix-blend-difference" />
+        <Logo className="h-8 w-auto text-eddy-text" />
       </Link>
-      <div className="hidden gap-4 text-eddy-text mix-blend-difference xs:flex sm:gap-12">
+      <div className="hidden gap-4 text-eddy-text xs:flex sm:gap-12">
         {navigationLinks.map((link) => (
           <Link
             key={link.href}
@@ -59,7 +59,7 @@ export default function Navigation() {
           aria-label={t.navigation["logo-alt"]}
           className="flex items-center"
         >
-          <Logo className="h-8 w-auto text-eddy-text mix-blend-difference" />
+          <Logo className="h-8 w-auto text-eddy-text" />
         </Link>
         <button
           aria-label={
@@ -68,12 +68,12 @@ export default function Navigation() {
           className="flex h-10 w-10 flex-col items-end justify-center gap-2 md:hidden"
           onClick={() => setIsOpen(!isOpen)}
         >
-          <span className="block h-px w-full bg-eddy-text mix-blend-difference"></span>
+          <span className="block h-px w-full bg-eddy-text"></span>
           <span
-            className={`block h-px bg-eddy-text mix-blend-difference transition-[width] duration-500 ${isOpen ? "w-1/2" : "w-full"}`}
+            className={`block h-px bg-eddy-text transition-[width] duration-500 ${isOpen ? "w-1/2" : "w-full"}`}
           ></span>
           <span
-            className={`block h-px bg-eddy-text mix-blend-difference transition-[width] duration-500 ${isOpen ? "w-full" : "w-1/2"}`}
+            className={`block h-px bg-eddy-text transition-[width] duration-500 ${isOpen ? "w-full" : "w-1/2"}`}
           ></span>
         </button>
       </div>

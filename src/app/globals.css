@@ -6,7 +6,13 @@
   --eddy-gray: #ebebeb;
   --eddy-gray-hover: #e0e0e0;
   --eddy-bg: #fbfbfb;
+  --eddy-nav-bg: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   --eddy-text: #111111;
+  --eddy-text-30: rgba(17, 17, 17, 0.3);
   --eddy-border: #111111;
   --eddy-hr: #111111;
   --font-dynamic: var(--font-pp-mori), var(--font-en), sans-serif;
@@ -36,6 +42,7 @@ html[lang^="jp"] {
   --color-eddy-gray-hover: var(--eddy-gray-hover);
   --color-eddy-bg: var(--eddy-bg);
   --color-eddy-text: var(--eddy-text);
+  --color-eddy-text-30: var(--eddy-text-30);
   --color-eddy-hr: var(--eddy-hr);
   --color-eddy-border: var(--eddy-border);
 }
@@ -44,13 +51,26 @@ html[lang^="jp"] {
   --breakpoint-xs: 350px;
 }
 
+/* 漸層不是顏色,不能放在 --color-*(那會變成 background-color,漸層在那裡無效),
+   所以自己定義一個用 background-image 的 utility */
+@utility bg-eddy-nav-bg {
+  background-image: var(--eddy-nav-bg);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --eddy-bg: #111111;
     --eddy-text: #fbfbfb;
+    --eddy-text-30: rgb(251, 251, 251, 0.5);
     --eddy-gray: #1c1c1c;
     --eddy-gray-hover: #242424;
     --eddy-border: #fbfbfb;
+
+    --eddy-nav-bg: linear-gradient(
+      180deg,
+      rgba(17, 17, 17, 1) 0%,
+      rgba(17, 17, 17, 0) 100%
+    );
   }
 }
 
@@ -74,11 +94,12 @@ html[lang^="jp"] {
   h2 {
     font-size: clamp(2.25rem, 1rem + 3.125vw, 3rem);
     font-weight: 100;
+    line-height: 100%;
   }
 
   h3 {
     font-size: clamp(1.75rem, 0.917rem + 2.083vw, 2.25rem);
-    font-weight: 600;
+    font-weight: 100;
   }
 
   h4 {
@@ -117,7 +138,6 @@ html[lang^="jp"] {
   }
 
   strong {
-    font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
     font-weight: 600;
   }
 

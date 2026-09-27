@@ -2,7 +2,7 @@ import HomeHero from "@/components/HomeHero";
 import MainLayout from "@/components/MainLayout";
 import ProgressiveImage from "@/components/ProgressiveImage";
 import Introduction from "@/components/Introduction";
-import { getAboutMe } from "@/sanity/queries";
+import { getAboutMe, getExperiences } from "@/sanity/queries";
 import { translations, defaultLocale, type Locale } from "@/i18n/translation";
 import ScrollDown from "@/components/ScrollDown";
 
@@ -13,7 +13,10 @@ export default async function AboutMe({
 }) {
   const { lang } = await params;
   const locale = (lang as Locale) ?? defaultLocale;
-  const aboutMe = await getAboutMe(locale);
+  const [aboutMe, experiences] = await Promise.all([
+    getAboutMe(locale),
+    getExperiences(locale),
+  ]);
   const t = translations[locale];
 
   return (
@@ -48,12 +51,22 @@ export default async function AboutMe({
           )}
         </>
       )}
-      {aboutMe && (
-        <Introduction
-          title={t.aboutMe["about-me-title"]}
-          content={aboutMe.content}
-        />
-      )}
+      <div className="flex flex-col gap-50 py-50">
+        {aboutMe && (
+          <Introduction
+            title={t.aboutMe["about-me-title"]}
+            content={aboutMe.content}
+            type="introduction"
+          />
+        )}
+        {experiences.length > 0 && (
+          <Introduction
+            title={t.aboutMe.experiences}
+            type="experiences"
+            experiences={experiences}
+          />
+        )}
+      </div>
     </MainLayout>
   );
 }

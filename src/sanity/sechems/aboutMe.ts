@@ -28,7 +28,7 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "nameEng",
+      name: "nameEn",
       title: "英文姓名",
       type: "string",
       validation: (Rule) => Rule.required(),
@@ -47,7 +47,7 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "birthdayEng",
+      name: "birthdayEn",
       title: "生日（英文）",
       type: "string",
       description: "e.g., January 1, 1990",
@@ -67,7 +67,7 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "nationalityEng",
+      name: "nationalityEn",
       title: "國籍（英文）",
       type: "string",
       validation: (Rule) => Rule.required(),
@@ -92,7 +92,7 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "locationEng",
+      name: "locationEn",
       title: "所在地（英文）",
       type: "string",
       description: "e.g., Taipei, Taiwan",
@@ -124,21 +124,21 @@ export default defineType({
         }),
     }),
     defineField({
-      name: "zhContent",
+      name: "contentZh",
       title: "關於我（中文）",
       type: "array",
       of: [{ type: "block" }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "engContent",
+      name: "contentEn",
       title: "關於我（英文）",
       type: "array",
       of: [{ type: "block" }],
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "jpContent",
+      name: "contentJp",
       title: "關於我（日文）",
       type: "array",
       of: [{ type: "block" }],
@@ -147,7 +147,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "nameEng",
+      title: "nameEn",
       subtitle: "email",
     },
   },
