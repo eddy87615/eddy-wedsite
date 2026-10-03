@@ -6,11 +6,6 @@
   --eddy-gray: #ebebeb;
   --eddy-gray-hover: #e0e0e0;
   --eddy-bg: #fbfbfb;
-  --eddy-nav-bg: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
   --eddy-text: #111111;
   --eddy-text-30: rgba(17, 17, 17, 0.3);
   --eddy-border: #111111;
@@ -51,12 +46,6 @@ html[lang^="jp"] {
   --breakpoint-xs: 350px;
 }
 
-/* 漸層不是顏色,不能放在 --color-*(那會變成 background-color,漸層在那裡無效),
-   所以自己定義一個用 background-image 的 utility */
-@utility bg-eddy-nav-bg {
-  background-image: var(--eddy-nav-bg);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --eddy-bg: #111111;
@@ -65,12 +54,6 @@ html[lang^="jp"] {
     --eddy-gray: #1c1c1c;
     --eddy-gray-hover: #242424;
     --eddy-border: #fbfbfb;
-
-    --eddy-nav-bg: linear-gradient(
-      180deg,
-      rgba(17, 17, 17, 1) 0%,
-      rgba(17, 17, 17, 0) 100%
-    );
   }
 }
 
@@ -121,6 +104,7 @@ html[lang^="jp"] {
   button,
   a,
   ul,
+  ol,
   li,
   input,
   textarea,
@@ -128,7 +112,20 @@ html[lang^="jp"] {
   th,
   td {
     font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
-    line-height: 1.5;
+    line-height: 1;
+    font-weight: 350;
+  }
+
+  p,
+  ul,
+  li,
+  ol {
+    line-height: 1.8;
+  }
+
+  ul,
+  ol {
+    padding-left: 24px;
   }
 
   small,
@@ -174,6 +171,14 @@ html.lenis body {
 
 .clock-colon {
   animation: clock-blink 1s infinite;
+}
+
+.portable-text p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.portable-text li {
+  list-style-type: disc;
 }
 
 @keyframes clock-blink {

@@ -23,12 +23,14 @@ export default function Introduction(props: IntroductionProps) {
               <p className="mb-5 text-2xl uppercase">{experience.period}</p>
               <p className="text-xl uppercase">{experience.position}</p>
               <p className="mb-5 text-eddy-text-30">{experience.company}</p>
-              <PortableText value={experience.description} />
+              <div className="portable-text">
+                <PortableText value={experience.description} />
+              </div>
             </article>
           ))}
         </div>
       ) : (
-        <div>
+        <div className="portable-text">
           <PortableText value={props.content} />
         </div>
       )}

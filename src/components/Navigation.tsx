@@ -33,7 +33,7 @@ export default function Navigation() {
       initial={{ y: "-100%", opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between bg-eddy-nav-bg p-4 uppercase sm:p-(--universal-padding)"
+      className="fixed top-0 left-0 z-50 flex w-full items-center justify-between p-4 uppercase sm:p-(--universal-padding)"
     >
       <Link
         href={`/${lang}`}
