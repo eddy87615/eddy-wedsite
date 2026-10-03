@@ -123,11 +123,6 @@ html[lang^="jp"] {
     line-height: 1.8;
   }
 
-  ul,
-  ol {
-    padding-left: 24px;
-  }
-
   small,
   time {
     font-size: clamp(0.75rem, 0.542rem + 0.521vw, 0.875rem);
@@ -179,6 +174,11 @@ html.lenis body {
 
 .portable-text li {
   list-style-type: disc;
+}
+
+.portable-text ul,
+.portable-text ol {
+  padding-left: 24px;
 }
 
 @keyframes clock-blink {
