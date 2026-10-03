@@ -57,6 +57,9 @@ html[lang^="jp"] {
   }
 }
 
+/* font-weight 只用 200 / 400 / 600:PP Mori 只有這三個粗細的字檔,
+   設成其他值(例如 350)時英文會被瀏覽器換成最接近的 200,
+   但 Noto Sans 中/日文是可變字型,會照 350 顯示,中英混排就會粗細不一 */
 @layer base {
   body {
     background: var(--eddy-bg);
@@ -71,33 +74,33 @@ html[lang^="jp"] {
 
   h1 {
     font-size: clamp(3rem, 1.75rem + 3.125vw, 3.75rem);
-    font-weight: 100;
+    font-weight: 200;
   }
 
   h2 {
     font-size: clamp(2.25rem, 1rem + 3.125vw, 3rem);
-    font-weight: 100;
+    font-weight: 200;
     line-height: 100%;
   }
 
   h3 {
     font-size: clamp(1.75rem, 0.917rem + 2.083vw, 2.25rem);
-    font-weight: 100;
+    font-weight: 200;
   }
 
   h4 {
     font-size: clamp(1.5rem, 1.083rem + 1.042vw, 1.75rem);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   h5 {
     font-size: clamp(1.125rem, 0.917rem + 0.521vw, 1.25rem);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   h6 {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   p,
@@ -113,7 +116,7 @@ html[lang^="jp"] {
   td {
     font-size: clamp(0.875rem, 0.667rem + 0.521vw, 1rem);
     line-height: 1;
-    font-weight: 350;
+    font-weight: 400;
   }
 
   p,

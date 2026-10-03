@@ -26,7 +26,7 @@ export default function HomeHero() {
           </Fragment>
         ))}
       </h1>
-      <p className="text-[clamp(1rem,-1.5rem+6.25vw,2.5rem)] font-thin">
+      <p className="text-[clamp(1rem,-1.5rem+6.25vw,2.5rem)] font-extralight">
         {t.home["home-title03"]}
       </p>
     </motion.div>
