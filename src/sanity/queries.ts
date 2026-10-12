@@ -43,6 +43,43 @@ async function getLatestByTags(
   return result ?? null;
 }
 
+// 文章跟專案都是 post,用分類 tag 區分:有 my-works 的算專案,其他都算文章
+const PROJECT_TAG = "my-works";
+
+export type PostCategory = "post" | "project";
+
+export interface PostListItem {
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  publishedAt: string;
+  category: PostCategory;
+}
+
+// 給文章和專案列表頁用:一次抓回該語言版本的全部文章,
+// 篩選交給前端做,切換按鈕時不用再打一次 Sanity
+export async function getPostsAndProjects(
+  lang: Locale,
+): Promise<PostListItem[]> {
+  const query = groq`*[
+    _type == "post" &&
+    count((tags[]->slug.current)[@ == $langTag]) > 0
+  ] | order(publishedAt desc){
+    "id": _id,
+    title,
+    "slug": slug.current,
+    "excerpt": coalesce(excerpt, pt::text(content)),
+    publishedAt,
+    "category": select($projectTag in tags[]->slug.current => "project", "post")
+  }`;
+
+  return client.fetch<PostListItem[]>(query, {
+    langTag: LANGUAGE_TAG_SLUG[lang],
+    projectTag: PROJECT_TAG,
+  });
+}
+
 export function getLatestProject(lang: Locale) {
   return getLatestByTags(["my-works"], lang);
 }

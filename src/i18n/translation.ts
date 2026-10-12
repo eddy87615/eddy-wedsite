@@ -19,6 +19,12 @@ export const translations = {
       "about-me-title": "Introduction",
       experiences: "experiences",
     },
+    postsAndProjects: {
+      all: "All",
+      posts: "Posts",
+      projects: "Projects",
+      empty: "No posts yet.",
+    },
     footer: {
       "footer-location": "location",
       "footer-location-spot": "tokyo, japan",
@@ -45,6 +51,12 @@ export const translations = {
       "about-me-title": "自我介紹",
       experiences: "經歷",
     },
+    postsAndProjects: {
+      all: "全部",
+      posts: "文章",
+      projects: "專案",
+      empty: "目前還沒有內容。",
+    },
     footer: {
       "footer-location": "位置",
       "footer-location-spot": "日本・東京都",
@@ -70,6 +82,12 @@ export const translations = {
     aboutMe: {
       "about-me-title": "自己紹介",
       experiences: "経歴",
+    },
+    postsAndProjects: {
+      all: "すべて",
+      posts: "記事",
+      projects: "プロジェクト",
+      empty: "まだ投稿がありません。",
     },
     footer: {
       "footer-location": "位置",
